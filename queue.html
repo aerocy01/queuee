@@ -1,0 +1,28 @@
+<!-- templates/queue.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Operations</title>
+</head>
+<body>
+    <h1>Queue Operations</h1>
+    <p>{{ message }}</p>
+    
+    <form method="POST">
+        <label for="data">Enter data:</label>
+        <input type="text" id="data" name="data" required><br><br>
+        
+        <button type="submit" name="action" value="enqueue">Enqueue</button>
+        <button type="submit" name="action" value="dequeue">Dequeue</button>
+    </form>
+
+    <h2>Queue Content:</h2>
+    <ul>
+        {% for item in queue_content %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
