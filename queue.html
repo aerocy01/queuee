@@ -1,28 +1,35 @@
-<!-- templates/queue.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queue Operations</title>
+    <title>Queue and Deque Implementation</title>
 </head>
 <body>
-    <h1>Queue Operations</h1>
-    <p>{{ message }}</p>
-    
-    <form method="POST">
-        <label for="data">Enter data:</label>
-        <input type="text" id="data" name="data" required><br><br>
-        
-        <button type="submit" name="action" value="enqueue">Enqueue</button>
-        <button type="submit" name="action" value="dequeue">Dequeue</button>
+    <h1>Queue</h1>
+    <form method="post" action="/enqueue">
+        <input type="text" name="item" placeholder="Enter item to enqueue" required>
+        <button type="submit">Enqueue</button>
     </form>
+    <form method="post" action="/dequeue">
+        <button type="submit">Dequeue</button>
+    </form>
+    <p>Queue: {{ queue }}</p>
 
-    <h2>Queue Content:</h2>
-    <ul>
-        {% for item in queue_content %}
-            <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
+    <h1>Deque</h1>
+    <form method="post" action="/add_front">
+        <input type="text" name="item" placeholder="Enter item to add front" required>
+        <button type="submit">Add to Front</button>
+    </form>
+    <form method="post" action="/add_rear">
+        <input type="text" name="item" placeholder="Enter item to add rear" required>
+        <button type="submit">Add to Rear</button>
+    </form>
+    <form method="post" action="/remove_front">
+        <button type="submit">Remove Front</button>
+    </form>
+    <form method="post" action="/remove_rear">
+        <button type="submit">Remove Rear</button>
+    </form>
+    <p>Deque: {{ deque }}</p>
 </body>
 </html>
